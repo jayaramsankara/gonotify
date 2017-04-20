@@ -1,0 +1,54 @@
+{
+	"ImportPath": "github.com/jayaramsankara/gonotify",
+	"GoVersion": "go1.7.1",
+	"Deps": [
+		{
+			"ImportPath": "github.com/anachronistic/apns",
+			"Rev": "f90152b7e0ae845938ce1258d90072fd116131ac"
+		},
+		{
+			"ImportPath": "github.com/gorilla/context",
+			"Rev": "215affda49addc4c8ef7e2534915df2c8c35c6cd"
+		},
+		{
+			"ImportPath": "github.com/gorilla/mux",
+			"Rev": "9cb89f07ca03c6a28d1e237ba033bc6a29422fd6"
+		},
+		{
+			"ImportPath": "github.com/gorilla/websocket",
+			"Rev": "a3ec486e6a7a41858210b0fc5d7b5df593b3c4a3"
+		},
+		{
+			"ImportPath": "github.com/jayaramsankara/gotell",
+			"Rev": "07f2acd4cace385363972f9cec207ddf6c13d859"
+		},
+		{
+			"ImportPath": "github.com/stretchr/objx",
+			"Rev": "cbeaeb16a013161a98496fad62933b1d21786672"
+		},
+		{
+			"ImportPath": "github.com/stretchr/testify/assert",
+			"Comment": "v1.0-19-g6fe8314",
+			"Rev": "6fe8314ce5ce27f43c9a510126279fdc5d5d38fc"
+		},
+		{
+			"ImportPath": "github.com/stretchr/testify/mock",
+			"Comment": "v1.0-19-g6fe8314",
+			"Rev": "6fe8314ce5ce27f43c9a510126279fdc5d5d38fc"
+		},
+		{
+			"ImportPath": "gopkg.in/bsm/ratelimit.v1",
+			"Rev": "bda20d5067a03094fc6762f7ead53027afac5f28"
+		},
+		{
+			"ImportPath": "gopkg.in/bufio.v1",
+			"Comment": "v1",
+			"Rev": "567b2bfa514e796916c4747494d6ff5132a1dfce"
+		},
+		{
+			"ImportPath": "gopkg.in/redis.v3",
+			"Comment": "v3.2.2",
+			"Rev": "2e21f6b3e7f1619919f674a3f92fd0e9a6d8a10d"
+		}
+	]
+}
