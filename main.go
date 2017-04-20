@@ -1,24 +1,24 @@
 package main
 
 import (
-	"os"
-	"log"
-	"strconv"
-	"gopkg.in/redis.v3"
 	"github.com/jayaramsankara/gotell"
+	"gopkg.in/redis.v5"
+	"log"
+	"os"
+	"strconv"
 )
 
 func main() {
-	
+
 	httpHost := "0.0.0.0"
-	
+
 	httpPort := os.Getenv("PORT")
-	
-    if httpPort == "" {
-        log.Println("$PORT must be set")
+
+	if httpPort == "" {
+		log.Println("$PORT must be set")
 		panic("$PORT is not set")
-    }
-	portNumber , err := strconv.Atoi(httpPort)
+	}
+	portNumber, err := strconv.Atoi(httpPort)
 	if err != nil {
 
 		log.Println("Invlid port number.", err)
@@ -27,18 +27,17 @@ func main() {
 	}
 	redisURL := os.Getenv("REDIS_URL")
 	if redisURL == "" {
-        log.Println("$REDIS_URL must be set")
+		log.Println("$REDIS_URL must be set")
 		panic("$REDIS_URL is not set")
-    }
+	}
 	
-	redisOptions := &redis.Options{
-				Addr:        os.Getenv("REDIS_URL"),
-				Password:    "", // no password set
-				DB:          0,  // use default DB
-				PoolTimeout: 3,  // Pool timeout
-				MaxRetries:  3,
-				PoolSize:    50,
-			}
+	redisOptions, rerr := redis.ParseURL(redisURL)
+	if rerr != nil {
+
+		log.Println("Invlid redis URL.", rerr)
+		panic("Invalid redis URL.")
+
+	}
 	err = gotell.InitServer(httpHost, portNumber, redisOptions)
 
 	if err != nil {
