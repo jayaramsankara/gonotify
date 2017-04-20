@@ -5,12 +5,12 @@ import (
 	"encoding/json"
 	"github.com/gorilla/mux"
 	"github.com/gorilla/websocket"
-	"github.com/jayaramsankara/gotell/apns"
-	"gopkg.in/redis.v3"
+	"gopkg.in/redis.v5"
 	"log"
 	"net/http"
 	"os"
 	"time"
+	"github.com/jayaramsankara/gotell/apns"
 )
 
 const (
@@ -146,7 +146,7 @@ func (conn *wsconnection) write(messageType int, payload []byte) error {
 
 func InitPubSub(redisConf *redis.Options) error {
 	redisSender = make(chan *NotifyData, redisConf.PoolSize)
-	receiver = redis.NewClient(redisConf).PubSub()
+	receiver, _ = redis.NewClient(redisConf).Subscribe()
 
 	var publisher = redis.NewClient(redisConf)
 
@@ -165,6 +165,7 @@ func InitPubSub(redisConf *redis.Options) error {
 				publisher.Close()
 				InitPubSub(redisConf)
 				return
+
 
 			} else {
 
@@ -213,6 +214,8 @@ func InitPubSub(redisConf *redis.Options) error {
 	return nil
 }
 
+
+
 func ServeApns(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
 	deviceToken := vars["devicetoken"]
@@ -228,13 +231,14 @@ func ServeApns(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusInternalServerError)
 
 	} else {
-		// send data to conn
-		logs.Println("Handling apns:  The extracted message is : ", data.Message, data.Badge, data.Sound)
-		apns.Notify(&data, deviceToken)
+	// send data to conn
+		logs.Println("Handling apns:  The extracted message is : ", data.Message,data.Badge,data.Sound)
+	    apns.Notify(&data,deviceToken)
 		w.WriteHeader(http.StatusOK)
 	}
 
 }
+
 
 //serveNotify receives the API, parses the body and sends the message to the corresponding
 // websocket. Returns error if no websocket conn exists for a client id or send fails
