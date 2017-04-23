@@ -18,7 +18,7 @@
 		},
 		{
 			"ImportPath": "github.com/jayaramsankara/gotell",
-			"Rev": "e2b21312b3f2f13a73dbf80ca52511dcb34c8818"
+			"Rev": "27178db9b1e26bf6b782b06298d7aba02cdbc069"
 		},
 		{
 			"ImportPath": "github.com/stretchr/testify/assert",
