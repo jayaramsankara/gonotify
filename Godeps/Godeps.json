@@ -18,7 +18,12 @@
 		},
 		{
 			"ImportPath": "github.com/jayaramsankara/gotell",
-			"Rev": "dde18e378ac2d1973eac892da6ec17c13a6b2b6d"
+			"Rev": "1fb04959c6d8ef1d39c5fb28c65d7924b50e7b5f"
+		},
+		{
+			"ImportPath": "github.com/satori/go.uuid",
+			"Comment": "v1.1.0-8-g5bf94b6",
+			"Rev": "5bf94b69c6b68ee1b541973bb8e1144db23a194b"
 		},
 		{
 			"ImportPath": "github.com/stretchr/testify/assert",
