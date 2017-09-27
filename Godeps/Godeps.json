@@ -18,7 +18,7 @@
 		},
 		{
 			"ImportPath": "github.com/jayaramsankara/gotell",
-			"Rev": "59b0b8b2190b40c0a41312e232c9d8d9f3df134f"
+			"Rev": "9b45b7898334bfd58e238769ec656c9c0f2b87ea"
 		},
 		{
 			"ImportPath": "github.com/satori/go.uuid",
