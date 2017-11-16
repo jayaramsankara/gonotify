@@ -16,6 +16,10 @@ For example, to send the message "Hello Friend!" to clients connected using clie
   * URL: https://gonotify.herokuapp.com/notify/awesome
   * Http method: POST
   * Payload:  {"message":"Hello Friend!"}
+  
+The value of message in the payload can be another JSON, but enclosed with in double quotes (as with string) and the doublequotes that are part of the value should be escaped (replace " with \\" ).
+ * Example: 
+   * { "message": "{\\"msg\\":\\"Hello from User1\\"}"} 
 
 The API response has a status field, which if true indicates that there were one or more client endpoints connected to those the message is delivered. If the status is false, it indicates there are no endpoints connected using the specified client id and message is dropped immediately. 
 Note that in both these cases, the http status code will be 200. 
