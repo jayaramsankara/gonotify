@@ -22,5 +22,5 @@ Note that in both these cases, the http status code will be 200.
 
 Coming Soon:
 
-The component that gonotify uses, gotell, supports sending APNS push notification to devices.  However this is limited to one application instance per application that has to send push notification. Once this is enhanced, it will be made part of gonotofy.
+The component that gonotify uses, gotell, supports sending APNS push notification to devices.  However this is limited to one application instance per application that has to send push notification. Once this is enhanced, it will be made part of gonotify.
 
