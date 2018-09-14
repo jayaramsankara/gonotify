@@ -95,11 +95,14 @@ func main() {
 		panic("Invalid redis URL.")
 
 	}
+	log.Println("Starting notification service. Watching the exec now..", err)
+	watchSelf()
+	
 	err = gotell.InitServer(httpHost, portNumber, redisOptions)
 
 	if err != nil {
 
 		log.Println("Failed to initiate notification service.", err)
 
-	}
+	} 
 }
